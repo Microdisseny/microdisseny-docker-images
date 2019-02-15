@@ -30,6 +30,7 @@ RUN apt-get update && \
 	python3-dev \
 	python3-setuptools \
 	python3-pip \
+  python3-venv \
 	tzdata \
     postgresql-server-dev-10 \
     postgresql-client-10 \
