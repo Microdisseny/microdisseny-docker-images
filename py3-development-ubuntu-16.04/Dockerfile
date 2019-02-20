@@ -23,6 +23,7 @@ RUN apt-get update && \
     gosu \
 	git \
     unzip \
+    netcat \
 	tzdata \
 	gdal-bin \
 	libgdal-dev \
