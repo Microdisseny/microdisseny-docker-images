@@ -51,6 +51,11 @@ RUN apt-get update && \
 # Clean up APT when done.
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
+# Create user for postgres
+RUN /etc/init.d/postgresql start && \
+    echo "CREATE ROLE admin PASSWORD 'admin' SUPERUSER CREATEDB CREATEROLE INHERIT LOGIN;" | \
+    su - postgres -c psql
+
 RUN mkdir -p /app
 
 ADD entrypoint.sh /entrypoint.sh

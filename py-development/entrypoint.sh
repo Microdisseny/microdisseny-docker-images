@@ -1,5 +1,14 @@
 #!/bin/bash
 
+if [[ -z "${TEST_DB_ENGINE}" ]]; then
+  TEST_DB_ENGINE="sqlite"
+else
+    if [ "${TEST_DB_ENGINE}" == "postgres" ]
+    then
+        service postgresql start
+    fi
+fi
+
 # Add local user using LOCAL_USER_ID if passed in at runtime
 export HOME=/home/user
 
