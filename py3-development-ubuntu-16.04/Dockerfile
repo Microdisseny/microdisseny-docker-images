@@ -31,13 +31,14 @@ RUN apt-get update && \
 	python3-dev \
 	python3-setuptools \
 	python3-pip \
-  python3-venv \
+    python3-venv \
 	tzdata \
     postgresql-server-dev-9.5 \
     postgresql-client-9.5 \
     postgresql-9.5-postgis-2.2 postgresql-9.5-postgis-scripts \
     postgresql postgresql-contrib \
-    libsqlite3-mod-spatialite && \
+    libsqlite3-mod-spatialite \
+    poppler-utils && \
 	pip3 install -U pip setuptools && \
 	echo $TZ > /etc/timezone && \
 	rm /etc/localtime && \
