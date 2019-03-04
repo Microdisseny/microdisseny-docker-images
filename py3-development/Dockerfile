@@ -14,25 +14,26 @@ ENV CPLUS_INCLUDE_PATH /usr/include/gdal
 ENV C_INCLUDE_PATH /usr/include/gdal
 
 
+
 RUN apt-get update && \
-    apt-get upgrade -y && \
-    apt-get install -y --no-install-recommends \
+  apt-get upgrade -y && \
+  apt-get install -y --no-install-recommends \
     build-essential \
     openssh-client \
     sudo \
     gosu \
-	git \
+    git \
     unzip \
     netcat \
-	tzdata \
-	gdal-bin \
-	libgdal-dev \
-	python3 \
-	python3-dev \
-	python3-setuptools \
-	python3-pip \
+    tzdata \
+    gdal-bin \
+    libgdal-dev \
+    python3 \
+    python3-dev \
+    python3-setuptools \
+    python3-pip \
     python3-venv \
-	tzdata \
+    tzdata \
     postgresql-server-dev-10 \
     postgresql-client-10 \
     postgresql-10-postgis-2.4 postgresql-10-postgis-scripts \
@@ -40,19 +41,19 @@ RUN apt-get update && \
     libsqlite3-mod-spatialite \ 
     gettext \
     poppler-utils && \
-	pip3 install -U pip setuptools && \
-	echo $TZ > /etc/timezone && \
-	rm /etc/localtime && \
-	ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && \
-	dpkg-reconfigure -f noninteractive tzdata
+  pip3 install -U pip setuptools && \
+  echo $TZ > /etc/timezone && \
+  rm /etc/localtime && \
+  ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && \
+  dpkg-reconfigure -f noninteractive tzdata
 
 # Clean up APT when done.
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # Create user for postgres
 RUN /etc/init.d/postgresql start && \
-    echo "CREATE ROLE admin PASSWORD 'admin' SUPERUSER CREATEDB CREATEROLE INHERIT LOGIN;" | \
-    su - postgres -c psql
+  echo "CREATE ROLE admin PASSWORD 'admin' SUPERUSER CREATEDB CREATEROLE INHERIT LOGIN;" | \
+  su - postgres -c psql
 
 RUN mkdir -p /app
 

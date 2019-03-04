@@ -15,24 +15,24 @@ ENV C_INCLUDE_PATH /usr/include/gdal
 
 
 RUN apt-get update && \
-    apt-get upgrade -y && \
-    apt-get install -y --no-install-recommends \
+  apt-get upgrade -y && \
+  apt-get install -y --no-install-recommends \
     build-essential \
     openssh-client \
     sudo \
     gosu \
-	git \
+    git \
     unzip \
     netcat \
-	tzdata \
-	gdal-bin \
-	libgdal-dev \
-	python3 \
-	python3-dev \
-	python3-setuptools \
-	python3-pip \
+    tzdata \
+    gdal-bin \
+    libgdal-dev \
+    python3 \
+    python3-dev \
+    python3-setuptools \
+    python3-pip \
     python3-venv \
-	tzdata \
+    tzdata \
     postgresql-server-dev-9.5 \
     postgresql-client-9.5 \
     postgresql-9.5-postgis-2.2 postgresql-9.5-postgis-scripts \
@@ -40,11 +40,11 @@ RUN apt-get update && \
     libsqlite3-mod-spatialite \
     gettext \
     poppler-utils && \
-	pip3 install -U pip setuptools && \
-	echo $TZ > /etc/timezone && \
-	rm /etc/localtime && \
-	ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && \
-	dpkg-reconfigure -f noninteractive tzdata
+  pip3 install -U pip setuptools && \
+  echo $TZ > /etc/timezone && \
+  rm /etc/localtime && \
+  ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && \
+  dpkg-reconfigure -f noninteractive tzdata
 
 # Clean up APT when done.
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
