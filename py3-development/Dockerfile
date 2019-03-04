@@ -38,6 +38,7 @@ RUN apt-get update && \
     postgresql-10-postgis-2.4 postgresql-10-postgis-scripts \
     postgresql postgresql-contrib \
     libsqlite3-mod-spatialite \ 
+    gettext \
     poppler-utils && \
 	pip3 install -U pip setuptools && \
 	echo $TZ > /etc/timezone && \
