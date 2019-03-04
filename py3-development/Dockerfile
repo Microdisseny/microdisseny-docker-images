@@ -18,6 +18,9 @@ ENV C_INCLUDE_PATH /usr/include/gdal
 RUN apt-get update && \
   apt-get upgrade -y && \
   apt-get install -y --no-install-recommends \
+    joe \
+    nano \
+    vim \
     build-essential \
     openssh-client \
     sudo \
