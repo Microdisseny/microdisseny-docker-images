@@ -1,6 +1,6 @@
 FROM ubuntu:16.04
 
-MAINTAINER Microdisseny tech team <tech@microdisseny.com>
+MAINTAINER Microdisseny Tech team <tech@microdisseny.com>
 
 ENV PYTHONUNBUFFERED 1
 ENV DEBIAN_FRONTEND noninteractive
