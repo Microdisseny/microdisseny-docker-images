@@ -1,6 +1,6 @@
 FROM ubuntu:18.04
 
-MAINTAINER Alexandre Busquets Triola <tech@microdisseny.com>
+MAINTAINER Microdisseny Tech team <tech@microdisseny.com>
 
 ENV PYTHONUNBUFFERED 1
 ENV DEBIAN_FRONTEND noninteractive
