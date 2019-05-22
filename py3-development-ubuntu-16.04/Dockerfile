@@ -42,7 +42,8 @@ RUN apt-get update && \
     postgresql postgresql-contrib \
     libsqlite3-mod-spatialite \
     gettext \
-    poppler-utils && \
+    poppler-utils \
+    gpg && \
   pip3 install -U pip setuptools && \
   echo $TZ > /etc/timezone && \
   rm /etc/localtime && \
