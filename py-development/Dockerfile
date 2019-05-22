@@ -46,7 +46,8 @@ RUN apt-get update && \
     libsqlite3-mod-spatialite \ 
     gettext \
     poppler-utils \
-    gpg && \
+    gpg \
+    dirmngr && \
   pip2 install -U pip setuptools && \
   pip3 install -U pip setuptools && \
   echo $TZ > /etc/timezone && \
