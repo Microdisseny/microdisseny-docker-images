@@ -45,6 +45,7 @@ RUN apt-get update && \
     gettext \
     poppler-utils \
     gpg \
+    gpg-agent \
     dirmngr && \
   pip3 install -U pip setuptools && \
   echo $TZ > /etc/timezone && \

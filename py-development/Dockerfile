@@ -47,6 +47,7 @@ RUN apt-get update && \
     gettext \
     poppler-utils \
     gpg \
+    gpg-agent \
     dirmngr && \
   pip2 install -U pip setuptools && \
   pip3 install -U pip setuptools && \
