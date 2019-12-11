@@ -56,6 +56,11 @@ RUN apt-get update && \
 # Clean up APT when done.
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
+RUN \
+  locale-gen ca_ES.UTF-8 && \
+  locale-gen es_ES.UTF-8 && \
+  update-locale
+
 # Create user for postgres
 RUN /etc/init.d/postgresql start && \
   echo "CREATE ROLE admin PASSWORD 'admin' SUPERUSER CREATEDB CREATEROLE INHERIT LOGIN;" | \
