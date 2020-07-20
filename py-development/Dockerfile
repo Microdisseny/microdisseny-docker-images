@@ -31,10 +31,12 @@ RUN apt-get update && \
     gdal-bin \
     libgdal-dev \
     python \
+    python-wheel \
     python-dev \
     python-setuptools \
     python-pip \
     python3 \
+    python3-wheel \
     python3-dev \
     python3-setuptools \
     python3-pip \
@@ -43,7 +45,7 @@ RUN apt-get update && \
     postgresql-client-10 \
     postgresql-10-postgis-2.4 postgresql-10-postgis-scripts \
     postgresql postgresql-contrib \
-    libsqlite3-mod-spatialite \ 
+    libsqlite3-mod-spatialite \
     gettext \
     poppler-utils \
     gpg \
