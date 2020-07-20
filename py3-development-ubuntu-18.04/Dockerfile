@@ -1,4 +1,4 @@
-FROM ubuntu:16.04
+FROM ubuntu:18.04
 
 MAINTAINER Microdisseny Tech team <tech@microdisseny.com>
 
@@ -37,13 +37,15 @@ RUN apt-get update && \
     python3-pip \
     python3-venv \
     tzdata \
-    postgresql-server-dev-9.5 \
-    postgresql-client-9.5 \
-    postgresql-9.5-postgis-2.2 postgresql-9.5-postgis-scripts \
+    postgresql-server-dev-10 \
+    postgresql-client-10 \
+    postgresql-10-postgis-2.4 postgresql-10-postgis-scripts \
     postgresql postgresql-contrib \
     libsqlite3-mod-spatialite \
     gettext \
     poppler-utils \
+    gpg \
+    gpg-agent \
     dirmngr && \
   pip3 install -U pip setuptools && \
   echo $TZ > /etc/timezone && \
@@ -54,10 +56,15 @@ RUN apt-get update && \
 # Clean up APT when done.
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
+RUN \
+  locale-gen ca_ES.UTF-8 && \
+  locale-gen es_ES.UTF-8 && \
+  update-locale
+
 # Create user for postgres
 RUN /etc/init.d/postgresql start && \
-    echo "CREATE ROLE admin PASSWORD 'admin' SUPERUSER CREATEDB CREATEROLE INHERIT LOGIN;" | \
-    su - postgres -c psql
+  echo "CREATE ROLE admin PASSWORD 'admin' SUPERUSER CREATEDB CREATEROLE INHERIT LOGIN;" | \
+  su - postgres -c psql
 
 RUN mkdir -p /app
 
