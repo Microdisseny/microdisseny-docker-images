@@ -67,6 +67,13 @@ RUN /etc/init.d/postgresql start && \
   echo "CREATE ROLE admin PASSWORD 'admin' SUPERUSER CREATEDB CREATEROLE INHERIT LOGIN;" | \
   su - postgres -c psql
 
+RUN mkdir -p /pip-cache
+ADD ./requirements-devel.txt /
+RUN pip3 wheel --wheel-dir /pip-cache -r requirements-devel.txt
+RUN pip3 install --find-links=/pip-cache -r /requirements-devel.txt
+
+RUN pip3 list --outdated
+
 RUN mkdir -p /app
 
 ADD entrypoint.sh /entrypoint.sh
