@@ -32,6 +32,7 @@ RUN apt-get update && \
     iputils-ping \
     gdal-bin \
     libgdal-dev \
+    postgresql-client \
     python-is-python3 \
     python3 \
     python3-wheel \
