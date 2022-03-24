@@ -46,7 +46,7 @@ RUN apt-get update && \
     gpg \
     gpg-agent \
     dirmngr && \
-  pip3 install -U pip setuptools && \
+  pip3 install -U pip setuptools uwsgi && \
   echo $TZ > /etc/timezone && \
   rm /etc/localtime && \
   ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && \
