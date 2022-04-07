@@ -14,9 +14,9 @@ ENV CPLUS_INCLUDE_PATH /usr/include/gdal
 ENV C_INCLUDE_PATH /usr/include/gdal
 
 
-RUN apt-get update && \
-  apt-get upgrade -y && \
-  apt-get install -y --no-install-recommends \
+RUN apt-get -qq update && \
+  apt-get -qq upgrade -y && \
+  apt-get -qq install -y --no-install-recommends \
     joe \
     nano \
     vim \

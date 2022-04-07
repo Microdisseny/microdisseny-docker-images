@@ -3,16 +3,16 @@ FROM microdisseny/py3-development:ubuntu-18.04
 ENV SELENIUM_VERSION=2.53.6
 
 
-RUN apt-get update && apt-get install -y --no-install-recommends \
+RUN apt-get -qq update && apt-get -qq install -y --no-install-recommends \
     wget unzip
 
-RUN wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb -P ~/ \
+RUN wget -nv https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb -P ~/ \
     && ls -la ~/ \
-    && apt-get install -yf ~/google-chrome-stable_current_amd64.deb
+    && apt-get -qq install -yf ~/google-chrome-stable_current_amd64.deb
 RUN rm ~/google-chrome-stable_current_amd64.deb
 
 # Install chromedriver.
-RUN wget -N https://chromedriver.storage.googleapis.com/2.35/chromedriver_linux64.zip -P ~/ && \
+RUN wget -nv -N https://chromedriver.storage.googleapis.com/2.35/chromedriver_linux64.zip -P ~/ && \
     unzip ~/chromedriver_linux64.zip -d ~/ && \
     rm ~/chromedriver_linux64.zip && \
     mv -f ~/chromedriver /usr/local/bin/chromedriver && \
