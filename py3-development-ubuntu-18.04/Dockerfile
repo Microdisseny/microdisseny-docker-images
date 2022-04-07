@@ -46,7 +46,7 @@ RUN apt-get -qq update && \
     gpg \
     gpg-agent \
     dirmngr && \
-  pip3 install -U pip setuptools==57.5.0 uwsgi && \
+  pip3 -q install -U pip setuptools==57.5.0 uwsgi && \
   echo $TZ > /etc/timezone && \
   rm /etc/localtime && \
   ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && \
@@ -68,8 +68,8 @@ RUN /etc/init.d/postgresql start && \
 
 RUN mkdir -p /pip-cache
 ADD ./requirements-devel.txt /
-RUN pip3 wheel --wheel-dir /pip-cache -r requirements-devel.txt
-RUN pip3 install --find-links=/pip-cache -r /requirements-devel.txt
+RUN pip3 -q wheel --wheel-dir /pip-cache -r requirements-devel.txt
+RUN pip3 -q install --find-links=/pip-cache -r /requirements-devel.txt
 
 RUN pip3 list --outdated
 

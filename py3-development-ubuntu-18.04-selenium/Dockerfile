@@ -20,7 +20,7 @@ RUN wget -nv -N https://chromedriver.storage.googleapis.com/2.35/chromedriver_li
 
 ENV PATH="/usr/local/bin/chromedriver:${PATH}"
 
-ENV pip3 install selenium==$SELENIUM_VERSION
+ENV pip3 -q install selenium==$SELENIUM_VERSION
 
 # Clean up APT when done.
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*

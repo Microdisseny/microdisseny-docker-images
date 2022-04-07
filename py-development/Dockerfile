@@ -51,8 +51,8 @@ RUN apt-get update && \
     gpg \
     gpg-agent \
     dirmngr && \
-  pip2 install -U pip setuptools && \
-  pip3 install -U pip setuptools && \
+  pip2 -q install -U pip setuptools && \
+  pip3 -q install -U pip setuptools && \
   echo $TZ > /etc/timezone && \
   rm /etc/localtime && \
   ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && \
