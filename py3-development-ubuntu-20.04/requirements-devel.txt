@@ -1,5 +1,6 @@
 autopep8==1.6.0
 bandit==1.7.2
+black==22.3.0
 coverage==6.3
 diff-cover==6.4.4
 django-debug-toolbar==3.2.4
