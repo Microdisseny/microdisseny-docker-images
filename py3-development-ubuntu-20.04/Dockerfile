@@ -10,9 +10,6 @@ ENV PATH /usr/local/bin:$PATH
 ENV LANG C.UTF-8
 ENV TZ 'Europe/Berlin'
 
-ENV CPLUS_INCLUDE_PATH /usr/include/gdal
-ENV C_INCLUDE_PATH /usr/include/gdal
-
 
 RUN apt-get -qq update && \
   apt-get -qq upgrade -y && \
@@ -30,8 +27,6 @@ RUN apt-get -qq update && \
     tzdata \
     locales \
     iputils-ping \
-    gdal-bin \
-    libgdal-dev \
     postgresql-client \
     python-is-python3 \
     python3 \
