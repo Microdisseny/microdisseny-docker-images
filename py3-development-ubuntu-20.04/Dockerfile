@@ -30,7 +30,6 @@ RUN apt-get -qq update && \
     tzdata \
     locales \
     iputils-ping \
-    gdal-bin \
     libgdal-dev \
     postgresql-client \
     python-is-python3 \
