@@ -45,7 +45,10 @@ RUN apt-get -qq update && \
     poppler-utils \
     gpg \
     gpg-agent \
-    dirmngr && \
+    dirmngr \
+    wget && \
+  apt-get -qq clean && \
+  apt-get -qq autoclean && \
   pip3 -q install -U pip setuptools uwsgi && \
   echo $TZ > /etc/timezone && \
   rm /etc/localtime && \

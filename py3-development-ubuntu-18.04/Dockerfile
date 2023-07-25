@@ -14,7 +14,8 @@ ENV CPLUS_INCLUDE_PATH /usr/include/gdal
 ENV C_INCLUDE_PATH /usr/include/gdal
 
 
-RUN apt-get -qq update && \
+RUN set -e && \
+  apt-get -qq update && \
   apt-get -qq upgrade -y && \
   apt-get -qq install -y --no-install-recommends \
     joe \
@@ -45,7 +46,10 @@ RUN apt-get -qq update && \
     poppler-utils \
     gpg \
     gpg-agent \
-    dirmngr && \
+    dirmngr \
+    wget && \
+  apt-get -qq clean && \
+  apt-get -qq autoclean && \
   pip3 -q install -U pip setuptools==57.5.0 uwsgi && \
   echo $TZ > /etc/timezone && \
   rm /etc/localtime && \
