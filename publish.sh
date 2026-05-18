@@ -1,4 +1,5 @@
 for IMAGE in \
+  microdisseny/py3-development:python-3.12-slim \
   microdisseny/py3-development:ubuntu-24.04 \
   microdisseny/py3-development:ubuntu-22.04 \
   microdisseny/py3-development:ubuntu-22.04-selenium \
