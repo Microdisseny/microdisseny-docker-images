@@ -1,6 +1,9 @@
 #! /bin/bash
 set -e
 
+docker pull ubuntu:26.04
+docker build --progress=plain -t microdisseny/py3-development:ubuntu-26.04 py3-development-ubuntu-26.04
+
 docker pull ubuntu:24.04
 docker build --progress=plain -t microdisseny/py3-development:ubuntu-24.04 py3-development-ubuntu-24.04
 
