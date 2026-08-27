@@ -50,7 +50,7 @@ RUN apt-get -qq update && \
   apt-get -qq clean && \
   apt-get -qq autoclean && \
   python3 -m venv /opt/venv && \ 
-  /opt/venv/bin/pip install -U pip uwsgi && \
+  /opt/venv/bin/pip install -U pip setuptools uwsgi && \
   echo $TZ > /etc/timezone && \
   rm /etc/localtime && \
   ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && \
