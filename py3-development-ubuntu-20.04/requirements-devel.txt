@@ -1,6 +1,6 @@
 autopep8==2.0.2
 bandit==1.7.5
-black==22.12.0
+black==24.3.0
 coverage==7.2.7
 darker==1.7.2
 diff-cover==7.7.0
